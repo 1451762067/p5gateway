@@ -1,0 +1,21 @@
+server:
+  port: 8088
+
+spring:
+  application:
+    name: exterConnection
+  servlet:
+    multipart:
+      enabled: true
+      max-file-size: 1MB
+      max-request-size: 1MB
+
+zuul:
+  host:
+    connect-timeout-millis: 30000
+    socket-timeout-millis: 60000
+  routes:
+    server1:
+      path: /test/**
+      url: http://127.0.0.1:8888/
+
